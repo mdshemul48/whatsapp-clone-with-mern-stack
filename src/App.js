@@ -1,16 +1,18 @@
-import './App.css';
 import Chat from './Chat/Chat';
 import SideBar from './SideBar/SideBar';
 
+import classes from "./App.module.css"
 function App() {
   return (
-    <div className="App">
-      <h1>hello world</h1>
-      {/* site bar component*/}
-      <SideBar />
+    <div className={classes.app}>
+      <div className={classes.app__body}>
+        {/* site bar component*/}
+        <SideBar />
 
-      {/* chat component*/}
-      <Chat />
+        {/* chat component*/}
+        <Chat />
+      </div>
+
     </div>
   );
 }
