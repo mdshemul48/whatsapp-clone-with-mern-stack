@@ -8,6 +8,7 @@ import Avatar from "@material-ui/core/Avatar"
 
 // css
 import classes from "./ChatHeader.module.css"
+import ChatHeaderRight from './ChatHeaderRight'
 const ChatHeader = () => {
     return (
         <div className={classes.chat__header}>
@@ -16,6 +17,7 @@ const ChatHeader = () => {
                 <h3>Room Name</h3>
                 <p>Last seen at...</p>
             </div>
+            <ChatHeaderRight />
         </div>
     )
 }
