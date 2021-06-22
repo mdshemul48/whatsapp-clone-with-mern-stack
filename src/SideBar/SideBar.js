@@ -1,11 +1,15 @@
 import React from 'react'
 
+// sidebar component
+import SidebarHeader from './components/SidebarHeader'
 
+// sidebar css
 import classes from "./SideBar.module.css"
+
 const SideBar = () => {
     return (
         <div className={classes.sideBar}>
-            <h1>sidebar</h1>
+            <SidebarHeader />
         </div>
     )
 }
