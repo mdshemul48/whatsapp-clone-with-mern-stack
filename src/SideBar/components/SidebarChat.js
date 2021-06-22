@@ -3,7 +3,7 @@ import React from 'react'
 // avatar
 import { Avatar } from '@material-ui/core'
 // css
-import classes from "./SidebarChart.module.css"
+import classes from "./SidebarChat.module.css"
 const SidebarChat = () => {
     return (
         <div className={classes.sidebar__chat}>

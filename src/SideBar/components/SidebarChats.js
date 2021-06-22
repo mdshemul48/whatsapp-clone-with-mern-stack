@@ -8,6 +8,9 @@ const SidebarChats = () => {
     return (
         <div className={classes.sidebar__chats}>
             <SidebarChat />
+            <SidebarChat />
+            <SidebarChat />
+            <SidebarChat />
         </div>
     )
 }
