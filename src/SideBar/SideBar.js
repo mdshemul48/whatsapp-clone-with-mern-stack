@@ -1,16 +1,21 @@
 import React from 'react'
 
 
-// sidebar component
+//  component
 import SidebarHeader from './components/SidebarHeader'
 
-// sidebar css
+// icon 
+import SidebarSearch from './components/SidebarSearch'
+//  css
 import classes from "./SideBar.module.css"
 
 const SideBar = () => {
     return (
         <div className={classes.sideBar}>
             <SidebarHeader />
+            <SidebarSearch />
+
+
         </div>
     )
 }
