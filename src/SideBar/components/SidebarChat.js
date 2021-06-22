@@ -4,7 +4,7 @@ import React from 'react'
 import { Avatar } from '@material-ui/core'
 // css
 import classes from "./SidebarChart.module.css"
-const SidebarChart = () => {
+const SidebarChat = () => {
     return (
         <div className={classes.sidebar__chat}>
             <Avatar />
@@ -16,4 +16,4 @@ const SidebarChart = () => {
     )
 }
 
-export default SidebarChart
+export default SidebarChat
