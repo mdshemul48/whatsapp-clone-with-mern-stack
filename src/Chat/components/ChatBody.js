@@ -9,7 +9,7 @@ import classes from "./ChatBody.module.css"
 const ChatBody = () => {
     return (
         <div className={classes.chat__body}>
-            <p>
+            <p className={classes.chat__message}>
                 <span className={classes.chat__name}>sam</span>
                 This is the message
                 <span className={classes.chat__timestamp}>
