@@ -1,10 +1,11 @@
 import React from 'react'
 
 import classes from "./Chat.module.css"
+import ChatHeader from './components/ChatHeader'
 const Chat = () => {
     return (
         <div className={classes.chat}>
-            <h1>chat</h1>
+            <ChatHeader />
         </div>
     )
 }
