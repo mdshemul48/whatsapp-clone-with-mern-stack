@@ -16,6 +16,21 @@ const ChatBody = () => {
                     {new Date().toUTCString()}
                 </span>
             </p>
+
+            <p className={`${classes.chat__message} ${classes.chat__receiver}`}>
+                <span className={classes.chat__name}>sam</span>
+                This is the message
+                <span className={classes.chat__timestamp}>
+                    {new Date().toUTCString()}
+                </span>
+            </p>
+            <p className={classes.chat__message}>
+                <span className={classes.chat__name}>sam</span>
+                This is the message
+                <span className={classes.chat__timestamp}>
+                    {new Date().toUTCString()}
+                </span>
+            </p>
         </div>
     )
 }
