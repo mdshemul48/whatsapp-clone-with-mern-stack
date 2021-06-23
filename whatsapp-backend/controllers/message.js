@@ -1,4 +1,4 @@
-import Message from "../models/newMessage.js"
+import NewMessage from "../models/newMessage.js"
 
 
 // this will create a new message to the db.
@@ -7,7 +7,7 @@ export const createNewMessage = async (req, res) => {
 
     let createdMessage;
     try {
-        createdMessage = await Message.create({ message, name, timestamp, received })
+        createdMessage = await NewMessage.create({ message, name, timestamp, received })
     } catch (err) {
         return res.send(500).send(err)
     }
