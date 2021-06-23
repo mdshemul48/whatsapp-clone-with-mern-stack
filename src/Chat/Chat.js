@@ -8,6 +8,7 @@ const Chat = () => {
         <div className={classes.chat}>
             <ChatHeader />
             <ChatBody />
+
         </div>
     )
 }
