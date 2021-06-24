@@ -4,8 +4,11 @@ import express from "express";
 import mongoose from "mongoose";
 import Pusher from "pusher";
 import cors from "cors"
+
 // routers 
-import router from "./routes/message.js"
+import userRouter from "./routes/user.js"
+import messageRouter from "./routes/message.js"
+
 
 
 // app config
@@ -41,12 +44,9 @@ mongoose.connect(db_connection_url, {
 // configuring realtime db with pusher
 const database = mongoose.connection
 database.once("open", () => {
-    console.log("db is connected.")
-
     const msgCollection = database.collection("messagecontents")
     const changeStream = msgCollection.watch();
     changeStream.on("change", (change) => {
-        console.log(change)
         if (change.operationType === "insert") {
             const messageDetails = change.fullDocument;
             pusher.trigger("messages", "inserted", messageDetails)
@@ -63,7 +63,8 @@ database.once("open", () => {
 app.get("/", (req, res) => res.status(200).send("hello world"))
 
 // redirecting request to the message router.
-app.use("/messages", router)
+app.use("/user", userRouter)
+app.use("/messages", messageRouter)
 // listen
 
 app.listen(port, () => console.log(`api rocks on http://localhost:${port}`))
