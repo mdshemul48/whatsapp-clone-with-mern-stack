@@ -24,7 +24,14 @@ const newUser = async (req, res) => {
         return res.status(500).send("Something went wrong while hashing the password.")
     }
 
-    const newUser = User.create({ name, username, password: hashedPassword })
+    // creating user in the db.
+    let user
+    try {
+        user = await User.create({ name, username, password: hashedPassword })
+    } catch (err) {
+        return res.status(500).send("something went wrong with the server. user not created.")
+    }
+    return res.status(201).json({ created: true })
 
 
 
