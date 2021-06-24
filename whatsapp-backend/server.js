@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import express from "express";
 import mongoose from "mongoose";
 import Pusher from "pusher";
-
+import cors from "cors"
 // routers 
 import router from "./routes/message.js"
 
@@ -25,6 +25,7 @@ const pusher = new Pusher({
 
 // middleware
 app.use(express.json())
+app.use(cors())
 
 // db config
 const db_connection_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.91aij.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
