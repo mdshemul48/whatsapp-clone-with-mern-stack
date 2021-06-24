@@ -6,9 +6,8 @@ import Pusher from "pusher";
 import cors from "cors"
 
 // routers 
-import userRouter from "./routes/user.js"
-import messageRouter from "./routes/message.js"
-
+import userRouter from "./routes/user-routes.js"
+import messageRouter from "./routes/message-routes.js"
 
 
 // app config

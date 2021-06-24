@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 // importing controllers 
-import { createNewMessage, syncNewMessage } from "../controllers/message.js";
+import { createNewMessage, syncNewMessage } from "../controllers/message-controller.js";
 
 
 

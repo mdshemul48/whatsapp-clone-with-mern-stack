@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs"
 
-import User from "../models/user"
+import User from "../models/user.js"
 
-const newUser = async (req, res) => {
+export const newUser = async (req, res) => {
     const { name, username, password } = req.body
     // checking if user already exist or not in out db.
     let existingUser
@@ -18,8 +18,9 @@ const newUser = async (req, res) => {
 
 
     // hashing the password
+    let hashedPassword
     try {
-        const hashedPassword = await bcrypt.hash(password, 10)
+        hashedPassword = await bcrypt.hash(password, 10)
     } catch (err) {
         return res.status(500).send("Something went wrong while hashing the password.")
     }
@@ -29,13 +30,8 @@ const newUser = async (req, res) => {
     try {
         user = await User.create({ name, username, password: hashedPassword })
     } catch (err) {
+        console.log(err)
         return res.status(500).send("something went wrong with the server. user not created.")
     }
     return res.status(201).json({ created: true })
-
-
-
-
-
-
 }
