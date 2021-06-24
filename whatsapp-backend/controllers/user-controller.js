@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs"
-
+import jwt from "jsonwebtoken"
 import User from "../models/user.js"
 
 export const newUser = async (req, res) => {
@@ -33,5 +33,9 @@ export const newUser = async (req, res) => {
         console.log(err)
         return res.status(500).send("something went wrong with the server. user not created.")
     }
-    return res.status(201).json({ created: true })
+
+    // creating token for login.
+    const token = jwt.sign({ id: user._id, username, name, }, process.env.JWT_SECRET)
+
+    return res.status(201).json({ created: true, token })
 }
