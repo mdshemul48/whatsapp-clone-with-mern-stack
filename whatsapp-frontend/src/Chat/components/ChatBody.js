@@ -39,11 +39,11 @@ const ChatBody = () => {
         fetch()
     }, [fetchData])
 
-    console.log(message)
+
     return (
         <div className={classes.chat__body}>
             {message.map((text) => (
-                <ChatMessage />
+                <ChatMessage name={text.name} date={text.timestamp} message={text.message} receiver={!text.received} />
             ))}
         </div>
     )

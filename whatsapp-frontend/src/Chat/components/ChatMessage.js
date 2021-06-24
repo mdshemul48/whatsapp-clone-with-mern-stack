@@ -12,7 +12,7 @@ function ChatMessage(props) {
             <span className={classes.chat__name}>{props.name || "sam"}</span>
             {props.message || "test message for now"}
             <span className={classes.chat__timestamp}>
-                {props.date?.toUTCString() || new Date().toUTCString()}
+                {props.date}
             </span>
         </p>
     )
