@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react"
 
 const useFetch = () => {
-    const [data, setData] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -18,12 +17,11 @@ const useFetch = () => {
             setIsLoading(false)
             return setError(err)
         }
-
         const responseData = await response.json()
-        setData(responseData)
         setIsLoading(false)
+        return responseData
     }, [])
-    return [data, error, isLoading, fetchData]
+    return [error, isLoading, fetchData]
 }
 
 export default useFetch
