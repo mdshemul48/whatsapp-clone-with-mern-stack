@@ -1,22 +1,27 @@
+import { useState } from 'react';
+
 import Chat from './Chat/Chat';
 import SideBar from './SideBar/SideBar';
 import Login from './login/Login';
 import classes from "./App.module.css"
 function App() {
+  const [token, setToken] = useState(null)
 
-  return <Login />
-  // return (
-  //   <div className={classes.app}>
-  //     <div className={classes.app__body}>
-  //       {/* site bar component*/}
-  //       <SideBar />
+  if (!token)
+    return <Login setTokenHandler={setToken} />
 
-  //       {/* chat component*/}
-  //       <Chat />
-  //     </div>
+  return (
+    <div className={classes.app}>
+      <div className={classes.app__body}>
+        {/* site bar component*/}
+        <SideBar />
 
-  //   </div>
-  // );
+        {/* chat component*/}
+        <Chat />
+      </div>
+
+    </div>
+  );
 }
 
 export default App;

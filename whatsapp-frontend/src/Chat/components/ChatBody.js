@@ -31,13 +31,13 @@ const ChatBody = () => {
     }, [])
 
 
-    useEffect(() => {
-        const fetch = async () => {
-            const data = await fetchData("http://localhost:9000/messages/sync")
-            setMessage(data)
-        }
-        fetch()
-    }, [fetchData])
+    // useEffect(() => {
+    //     const fetch = async () => {
+    //         const data = await fetchData("http://localhost:9000/messages/sync")
+    //         setMessage(data)
+    //     }
+    //     fetch()
+    // }, [fetchData])
 
 
     return (
