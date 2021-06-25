@@ -14,6 +14,7 @@ const roomSchema = mongoose.Schema({
     chat: [
         {
             person: mongoose.Types.ObjectId,
+            ref: "user",
             message: {
                 type: String,
                 required: true,
@@ -22,7 +23,9 @@ const roomSchema = mongoose.Schema({
                 type: Date,
                 default: Date.now,
             }
-            
+
         }
     ]
 })
+
+export default mongoose.model("room", roomSchema)
