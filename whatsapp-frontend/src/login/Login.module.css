@@ -1,0 +1,35 @@
+.login__page {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(#2c3e50, #4ca1af);
+}
+
+.login__section {
+  width: 500px;
+  padding-top: 10%;
+  margin: 0 auto;
+}
+.login__signupText {
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 1.8rem;
+  color: #1f1f1f;
+  margin: 0 0 30px;
+}
+.login__submit {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+}
+.login__page button {
+  background-color: #4896ff;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 15px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 15px;
+}

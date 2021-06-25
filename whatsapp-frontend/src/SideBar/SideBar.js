@@ -16,7 +16,6 @@ const SideBar = () => {
             <SidebarHeader />
             <SidebarSearch />
             <SidebarChats />
-
         </div>
     )
 }
