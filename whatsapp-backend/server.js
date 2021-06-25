@@ -7,6 +7,7 @@ import cors from "cors"
 
 // routers 
 import userRouter from "./routes/user-routes.js"
+import roomRoutes from "./routes/room-routes.js"
 import messageRouter from "./routes/message-routes.js"
 
 
@@ -61,8 +62,9 @@ database.once("open", () => {
 
 app.get("/", (req, res) => res.status(200).send("hello world"))
 
-// redirecting request to the message router.
+// redirecting request to the routers.
 app.use("/user", userRouter)
+app.use("/room", roomRoutes)
 app.use("/messages", messageRouter)
 // listen
 
