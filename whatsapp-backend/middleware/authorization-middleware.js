@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 
 const authorization = async (req, res, next) => {
     // in this middleware verifying the token and attaching the user info with request. like userId, name, username etc.
-    const authToken = req.headers.authorization.split(" ")[1]
+    const authToken = req.headers.authorization?.split(" ")[1]
 
     if (!authToken) {
         return res.status(401).send("you're not allowed to access this route.")

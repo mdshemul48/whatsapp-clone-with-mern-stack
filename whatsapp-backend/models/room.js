@@ -13,8 +13,10 @@ const roomSchema = mongoose.Schema({
     },
     chat: [
         {
-            person: mongoose.Types.ObjectId,
-            ref: "user",
+            person: {
+                type: String,
+                required: true
+            },
             message: {
                 type: String,
                 required: true,
