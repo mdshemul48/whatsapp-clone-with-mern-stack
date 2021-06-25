@@ -17,7 +17,6 @@ const authorization = async (req, res, next) => {
     } catch (err) {
         return res.status(500).send("something went wrong with the server. please try again.")
     }
-
     const { id, username } = decryptedData
     req.body = { ...req.body, id, username }
     next()
