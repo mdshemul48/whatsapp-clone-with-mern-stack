@@ -18,8 +18,8 @@ const authorization = async (req, res, next) => {
         return res.status(500).send("something went wrong with the server. please try again.")
     }
 
-    const { id, name, username } = decryptedData
-    req.body = { ...req.body, id, name, username }
+    const { id, username } = decryptedData
+    req.body = { ...req.body, id, username }
     next()
 }
 

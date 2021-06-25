@@ -2,8 +2,8 @@ import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import User from "../models/user.js"
 
-export const newUser = async (req, res) => {
-    const { name, username, password } = req.body
+export const auth = async (req, res) => {
+    const { username, password } = req.body
     // checking if user already exist or not in out db.
     let existingUser
     try {
@@ -12,6 +12,26 @@ export const newUser = async (req, res) => {
         return res.status(500).send("Something went wrong while checking for existing user.")
     }
     if (existingUser) {
+        // checking the user password
+        try {
+            const passwordCheck = await bcrypt.compare(password, existingUser.password)
+            if (passwordCheck) {
+                // creating token for user login.
+                const token = await jwt.sign({ id: existingUser._id, username: existingUser.username }, process.env.JWT_SECRET)
+                return res.status(200).json({ successful: true, token })
+            }
+
+
+
+
+
+        } catch (err) {
+
+        }
+
+
+
+
         return res.status(409).send("user already exist. please choose different username.")
     }
     // already checking done. if user already exist then request won't pass bellow this line.
@@ -28,14 +48,14 @@ export const newUser = async (req, res) => {
     // creating user in the db.
     let user
     try {
-        user = await User.create({ name, username, password: hashedPassword })
+        user = await User.create({ username, password: hashedPassword })
     } catch (err) {
         console.log(err)
         return res.status(500).send("something went wrong with the server. user not created.")
     }
 
     // creating token for login.
-    const token = jwt.sign({ id: user._id, username, name, }, process.env.JWT_SECRET)
+    const token = jwt.sign({ id: user._id, username }, process.env.JWT_SECRET)
 
-    return res.status(201).json({ created: true, token })
+    return res.status(201).json({ successful: true, token })
 }
