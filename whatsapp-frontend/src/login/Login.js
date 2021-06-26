@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
+// this is auth context and this will handler all authorization and authentication 
+import authContext from '../context/authContext'
 
 import Input from "./components/Input"
-
 import classes from "./Login.module.css"
 
 const Login = (props) => {
+
+    const { setLogInHandler } = useContext(authContext)
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -37,7 +41,7 @@ const Login = (props) => {
                 }
 
                 const responseData = await response.json()
-                props.setTokenHandler(responseData.token)
+                setLogInHandler(responseData.token, responseData.userId)
             } catch (err) {
                 console.log(err)
                 return alert(JSON.stringify(err))

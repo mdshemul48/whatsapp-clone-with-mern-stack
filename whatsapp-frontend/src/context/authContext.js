@@ -11,7 +11,6 @@ const authContext = createContext({
 
 export const AuthContextProvider = (props) => {
     const [authInfo, setLogInHandler, setLogoutHandler] = useAuth()
-
     return <authContext.Provider value={{ authInfo, setLogInHandler, setLogoutHandler }}>
         {props.children}
     </authContext.Provider>

@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
+import authContext from "./context/authContext"
 import Chat from './Chat/Chat';
 import SideBar from './SideBar/SideBar';
 import Login from './login/Login';
 import classes from "./App.module.css"
-function App() {
-  const [token, setToken] = useState(null)
 
-  if (!token)
-    return <Login setTokenHandler={setToken} />
+function App() {
+  const { authInfo } = useContext(authContext)
+
+  if (!authInfo)
+    return <Login setTokenHandler />
 
   return (
     <div className={classes.app}>
