@@ -4,12 +4,12 @@ const roomSchema = mongoose.Schema({
     person1: {
         required: true,
         type: mongoose.Types.ObjectId,
-        ref: "user"
+        ref: "User"
     },
     person2: {
         required: true,
         type: mongoose.Types.ObjectId,
-        ref: "user"
+        ref: "User"
     },
     chat: [
         {

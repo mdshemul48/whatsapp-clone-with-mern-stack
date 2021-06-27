@@ -55,7 +55,7 @@ export const getMessageRoom = async (req, res) => {
 
     let messageRoom
     try {
-        messageRoom = await Room.find({ $or: [{ person1: id }, { person2: id }] })
+        messageRoom = await Room.find({ $or: [{ person1: id }, { person2: id }] }).populate("person1").populate("person2")
     } catch (err) {
         console.log(err)
         return res.status(500).send("something went wrong with the server. please try again.")
