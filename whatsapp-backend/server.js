@@ -8,7 +8,6 @@ import cors from "cors"
 // routers 
 import userRouter from "./routes/user-routes.js"
 import roomRoutes from "./routes/room-routes.js"
-import messageRouter from "./routes/message-routes.js"
 
 
 // app config
@@ -65,7 +64,6 @@ app.get("/", (req, res) => res.status(200).send("hello world"))
 // redirecting request to the routers.
 app.use("/user", userRouter)
 app.use("/room", roomRoutes)
-app.use("/messages", messageRouter)
 // listen
 
 app.listen(port, () => console.log(`api rocks on http://localhost:${port}`))

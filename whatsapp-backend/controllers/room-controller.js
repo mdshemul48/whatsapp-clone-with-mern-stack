@@ -62,7 +62,4 @@ export const getMessageRoom = async (req, res) => {
     }
 
     return res.status(200).json(messageRoom)
-
-
-
 }

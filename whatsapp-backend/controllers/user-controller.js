@@ -18,19 +18,12 @@ export const auth = async (req, res) => {
             if (passwordCheck) {
                 // creating token for user login.
                 const token = await jwt.sign({ id: existingUser._id, username: existingUser.username }, process.env.JWT_SECRET)
-                return res.status(200).json({ successful: true, token })
+                return res.status(200).json({ successful: true, token, userId: existingUser._id })
             }
-
-
-
-
 
         } catch (err) {
 
         }
-
-
-
 
         return res.status(409).send("user already exist. please choose different username.")
     }
@@ -50,12 +43,11 @@ export const auth = async (req, res) => {
     try {
         user = await User.create({ username, password: hashedPassword })
     } catch (err) {
-        console.log(err)
         return res.status(500).send("something went wrong with the server. user not created.")
     }
 
     // creating token for login.
     const token = jwt.sign({ id: user._id, username }, process.env.JWT_SECRET)
 
-    return res.status(201).json({ successful: true, token })
+    return res.status(201).json({ successful: true, token, userId: user._id })
 }
