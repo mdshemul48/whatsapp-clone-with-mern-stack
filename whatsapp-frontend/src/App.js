@@ -10,7 +10,7 @@ function App() {
   const { authInfo } = useContext(authContext)
 
   if (!authInfo)
-    return <Login setTokenHandler />
+    return <Login />
 
   return (
     <div className={classes.app}>
